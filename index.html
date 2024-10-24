@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa para Damas - SHEIN-TRAPOS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo General */
+        body {
+            font-family: 'Lucida Fax', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #ff1696;
+            color: #333;
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            width: 120px;
+            height: auto;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
+            font-weight: bold;
+            color: #c58000;
+        }
+
+        /* Navegación */
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #0c160f;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 15px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffffff;
+            color: #fc2087;
+            border-radius: 5px;
+        }
+
+        /* Banner */
+        .banner {
+            background: url('banner.jpg') no-repeat center center;
+            height: 100px;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .banner h2 {
+            color: #790688;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Video */
+        iframe {
+            max-width: 70%;
+            margin: 50px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Secciones */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section.bg-light {
+            background-color: #11cfff;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            color: #fc2087;
+            margin-bottom: 5px;
+        }
+
+        .section p {
+            font-size: 1em;
+            color: #000000;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        /* Productos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-item h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-item p {
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .add-to-cart-btn {
+            background-color: #fc2087;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #e51e7c;
+        }
+
+        /* Formulario de Contacto */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 60px;
+            background-color: #9b9a9a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0);
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: block;
+            color: #050505;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1.1em;
+        }
+
+        button {
+            background-color: #fc2087;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e51e7c;
+        }
+
+        /* Sección de Políticas */
+        #politicas {
+            text-align: left;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #f0f34d;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(150, 156, 236, 0.1);
+        }
+
+        #politicas h2 {
+            font-size: 2em;
+            color: #fc2087;
+            margin-bottom: 20px;
+        }
+
+        /* Carrito */
+        #carrito {
+            text-align: left;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #carrito h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #fc2087;
+        }
+        #carrito ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #carrito ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #carrito ul li button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: rgb(255, 255, 255);
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #fc2087;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .banner h2 {
+                font-size: 2.5em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            iframe {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="shein.png" alt="Logo de la tienda">
+        <h1>SHEIN-TRAPOS</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#politicas">Políticas</a></li>
+            <li><a href="#carrito">Carrito</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner" id="inicio">
+        <h2>¡Tú eres bella, tú eres única!</h2>
+    </section>
+
+    <!-- Video -->
+    <iframe width="853" height="480" src="https://www.youtube.com/embed/_iFpCA7lPcM"
+        title="Vídeo publicitario - marca de ropa ALPHA MODA" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+    <!-- Productos -->
+    <section class="section bg-light" id="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="products-grid">
+            <div class="product-item">
+                <img src="LUVARO2209.webp" alt=" Pantalon Jeans">
+                <h3>Pant Denim Alondra - Azul Oscuro</h3>
+                <p>S/ 79.90</p>
+                <button class="add-to-cart-btn" data-product="Pant Denim Alondra" data-price="79.90">Agregar al Carrito</button>
+            </div>
+            <div class="product-item">
+                <img src="Sesionsintitulo0950-2.webp" alt="Pantalon Jeans">
+                <h3>Cargo Pants - Azul</h3>
+                <p>S/ 89.90</p>
+                <button class="add-to-cart-btn" data-product="Cargo Pants" data-price="89.90">Agregar al Carrito</button>
+            </div>
+            <div class="product-item">
+                <img src="vestido.webp" alt="Vestido Largo">
+                <h3>Enterizo Kelly - Estampado negro</h3>
+                <p>S/ 59.90</p>
+                <button class="add-to-cart-btn" data-product="Enterizo Kelly" data-price="59.90">Agregar al Carrito</button>
+            </div>
+            <div class="product-item">
+                <img src="falda.webp" alt="Falda Larga">
+                <h3>Falda Cloe - Negro rayas</h3>
+                <p>S/ 59.90</p>
+                <button class="add-to-cart-btn" data-product="Falda Cloe" data-price="59.90">Agregar al Carrito</button>
+            </div>
+            <div class="product-item">
+                <img src="camisa.webp" alt="Camisa">
+                <h3>Blusa Marcela - Crema con negro</h3>
+                <p>S/ 49.90</p>
+                <button class="add-to-cart-btn" data-product="Blusa Marcela" data-price="49.90">Agregar al Carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="section" id="sobre-nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos una marca de moda creada en Barcelona para chicas que buscan las últimas tendencias a precios
+            asequibles y con diseños originales y favorecedores.
+        </p>
+        <h2>Bibliografia</h2>
+        <p>La marca fué fundada por Zandra en 2008 cuando decidio emprender su propio camino.Somo una marca excluisiva
+            en ropa elegante.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section bg-light" id="contacto">
+        <h2>Contáctanos</h2>
+        <form action="#">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="Celular">Celular:</label>
+            <input type="Celular" id="Celular" name="Celular" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Políticas de la Tienda -->
+    <section class="section" id="politicas">
+        <h2>Políticas de la Tienda</h2>
+        <p>Nuestra tienda ofrece devoluciones dentro de los primeros 30 días. Los productos deben estar en su estado
+            original con todas las etiquetas. Consulta nuestras políticas de envío y devolución para más información.
+        </p>
+    </section>
+
+    <!-- Carrito de Compras -->
+    <section class="section bg-light" id="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="carrito-list">
+            <!-- Productos añadidos aparecerán aquí -->
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tienda de Ropa SHEIN-TRAPOS | Todos los derechos reservados</p>
+        <p>Síguenos en:</p>
+    </a>
+        <a href="https://www.facebook.com/UPeUOficial?mibextid=ZbWKwL" target="_blank">
+        <img src="Facebook_Logo_(2019).png" alt="Facebook" width="50">
+    </a>
+        <a href="https://wa.me/949117748" target="_blank">
+        <img src="whap.jfif" alt="WhatsApp" width="50">
+    </a>
+        <a href="https://www.instagram.com/?hl=es" target="_blank">
+        <img src="ins.webp" alt="Instagram" width="50">
+    </a>
+    </footer>
+    <script>
+        // Inicializamos el carrito
+        const carrito = [];
+
+        // Seleccionamos todos los botones de "Agregar al Carrito"
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        // Agregamos evento a cada botón para añadir producto al carrito
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.getAttribute('data-product');
+                const price = button.getAttribute('data-price');
+                
+                // Añadimos el producto al carrito
+                carrito.push({ product, price });
+                actualizarCarrito();
+            });
+        });
+
+        // Función para actualizar el carrito
+        function actualizarCarrito() {
+            const carritoList = document.getElementById('carrito-list');
+            carritoList.innerHTML = ''; // Limpiar la lista actual
+            
+            carrito.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `${item.product} - S/ ${item.price} <button onclick="eliminarDelCarrito(${index})">Eliminar</button>`;
+                carritoList.appendChild(li);
+            });
+        }
+
+        // Función para eliminar producto del carrito
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
